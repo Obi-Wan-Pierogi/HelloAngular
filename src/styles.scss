@@ -1,0 +1,23 @@
+/*
+Midnight Green - #003638
+Accent Mint - #34af86
+Atomic Tangerine - #F2A183
+Sunspot Yellow - #F2E783
+White - #F9F9F9
+*/
+
+:root {
+  --MidnightGreen: #003638;
+  --AtomicTangerine: #F2A183;
+}
+
+$body-bg-dark: #003638;
+$body-tertiary-dark: #F2A183;
+$body-emphasis-color-dark: #000000;
+$primary: #F2A183;
+
+$font-family-sans-serif: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss'
+
+

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -26,4 +27,15 @@ export class HomeComponent {
       image: 'https://via.placeholder.com/150',
     },
   ];
-}
+
+  games = this.data.games$;
+
+  
+
+  constructor(private data: DataService) {
+    this.data.getAllGames();  
+  }
+};
+
+
+

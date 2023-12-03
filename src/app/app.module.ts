@@ -10,6 +10,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CardItemComponent } from './card/card-item/card-item.component';
 import { CardListComponent } from './card/card-list/card-list.component';
 import { DataService } from './data.service';
+import { GameDetailComponent } from './game-detail/game-detail.component';
+import { CalloutComponent } from './Block/callout/callout.component';
+import { WishlistComponent } from './Block/wishlist/wishlist.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { GameEditComponent } from './game-edit/game-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +23,16 @@ import { DataService } from './data.service';
     ItemComponent,
     NavbarComponent,
     CardItemComponent,
-    CardListComponent
+    CardListComponent,
+    GameDetailComponent,
+    CalloutComponent,
+    WishlistComponent,
+    GameEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [

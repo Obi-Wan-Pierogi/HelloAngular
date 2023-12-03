@@ -1,0 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from '../data.service';
+import { switchMap } from 'rxjs';
+
+@Component({
+  selector: 'app-game-detail',
+  templateUrl: './game-detail.component.html',
+  styleUrls: ['./game-detail.component.css']
+})
+export class GameDetailComponent implements OnInit{
+
+  id = ""
+
+  game: any = {};
+
+  constructor(private route: ActivatedRoute, private data: DataService, private router: Router) {
+    
+   }
+  ngOnInit(): void {
+    console.log("View is ready")
+
+    this.route.paramMap.pipe(
+      switchMap(params => {
+        this.id = params.get('id')!;
+        return this.data.getOneGame(this.id);
+      })
+      ).subscribe(ourGame => {
+        this.game = ourGame;
+      }) 
+  }
+
+  editGame(): void {
+    //when clicked, open the edit page
+    this.router.navigate(['games', this.id, 'edit']);
+  }
+
+  deleteGame(): void {
+    this.data.deleteGame(this.id).subscribe(result => {
+      this.router.navigate(['']);
+    })
+  }
+
+}

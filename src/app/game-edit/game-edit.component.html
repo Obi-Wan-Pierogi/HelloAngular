@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Create Game</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="gameForm" (ngSubmit)="submitForm()">
+               <div>
+                     <label for="gameId"class="form-label">GameID</label>
+                     <input type="text" class="form-control" formControlName="gameId" />
+               </div> 
+               <div>
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" formControlName="title"/>
+                </div>
+                <div>
+                    <label for="shortDescription" class="form-label">Short Description</label>
+                    <textarea class="form-control" rows="3" formControlName="shortDescription"></textarea>
+                </div>
+                <div>
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" rows="6" formControlName="description"></textarea>
+                </div>
+                <div>
+                    <label for="image" class="form-label">Image</label>
+                    <input type="text" class="form-control" formControlName="image">
+                </div>
+                <!-- Start Dynamic Controls -->
+                <div class="row">
+                    <div class="btn btn-primary my-4" (click)="addNewFeature()" >Add New Feature</div>
+                </div>
+                <div class="row" formArrayName="features">
+                    <div class="col" *ngFor="let feature of features.controls; let i = index" [formGroupName]="i">
+                        <div>
+                            <label class="form-label mb-1">Feature Name</label>
+                            <input type="text" class="form-control" formControlName="name"/>
+                        </div>
+                        
+                        <div>
+                            <label class="form-label mt-2 mb-1">Feature Description</label>
+                            <input type="text" class="form-control" formControlName="description"/>
+                        </div>
+
+                        <div>
+                            <label class="form-label mt-2 mb-1">Feature Image</label>
+                            <input type="text" class="form-control" formControlName="image"/>
+                        </div>
+                        <div class="btn btn-danger mt-2" (click)="removeFeature(i)">Remove</div>
+                    </div>                   
+                </div>      
+                <!-- End Dynamic Controls -->
+                <div class ="mt-2">
+                    <button class="btn btn-primary">Submit</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- <pre>{{ id | json}}</pre> -->

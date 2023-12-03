@@ -7,9 +7,12 @@ import { Component, Input } from '@angular/core';
 })
 export class CardItemComponent {
   @Input() data: any = {
-    title: 'Placeholder Title',
-    description: 'Card Item Description',
-    buttonText: 'Click Me',
-    image: 'https://via.placeholder.com/150',
+    gameId: "",
+    title: "",
+    shortDescription: "",
+    description: "",
+    image: "",
+    features: [],
+      
   };
 }
